@@ -124,3 +124,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shellExplosionPrefab: {fileID: 195792, guid: 89e78efe92dfe5a42837b392cdb0bf9e, type: 3}
   shellExlosionAudio: {fileID: 8300000, guid: 3a77defcde1caaa40b6f7502547e0c4e, type: 3}
+  m_explosionParticles: {fileID: 19807510, guid: 89e78efe92dfe5a42837b392cdb0bf9e,
+    type: 3}
+  m_TankMask:
+    serializedVersion: 2
+    m_Bits: 512
+  m_ExplosionForce: 1000
+  m_MaxLifeTime: 2
+  m_ExplosionRadius: 5
+  m_MaxDamage: 100

@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class TankHealth : MonoBehaviour
 {
-    public int hp=100;
+    public float hp=100f;
     public GameObject tankExposion;
     public AudioClip tankExposionAudio;
     public Slider hpSlider;
-    private int totalHp;
+    private float totalHp;
     // Start is called before the first frame update
     void Start()
     {
         totalHp=hp;    
-        hpSlider.value=(float)hp/totalHp;
+        hpSlider.value=hp/totalHp;
     }
 
     // Update is called once per frame
@@ -23,10 +23,10 @@ public class TankHealth : MonoBehaviour
     
     }
 
-    void TakeDamage(){
+    public void TakeDamage(float damage){
         if(hp<=0) return;
-        hp-=Random.Range(10,20);
-        hpSlider.value=(float)hp/totalHp;
+        hp-=damage;
+        hpSlider.value=hp/totalHp;
         if(hp<=0){
             AudioSource.PlayClipAtPoint(tankExposionAudio,transform.position);
             GameObject.Instantiate(tankExposion,transform.position+Vector3.up,transform.rotation);
