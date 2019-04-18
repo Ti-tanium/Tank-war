@@ -10,6 +10,7 @@ public class Tank_Attack : MonoBehaviour
     public float shellSpeed = 20;
     public int bulletCount=20;
     public AudioClip ShootAudio;
+    public GameObject camera;
 
     private Transform firePosition;
     // Start is called before the first frame update
@@ -23,7 +24,7 @@ public class Tank_Attack : MonoBehaviour
     {
         if (Input.GetKeyDown(fireKey))
         {
-            AudioSource.PlayClipAtPoint(ShootAudio,transform.position);
+            AudioSource.PlayClipAtPoint(ShootAudio,camera.transform.position,100f);
             GameObject go = GameObject.Instantiate(shellPrefab, firePosition.position, firePosition.rotation) as GameObject;
             go.GetComponent<Rigidbody>().velocity = go.transform.forward * shellSpeed;
         }

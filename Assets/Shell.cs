@@ -17,6 +17,7 @@ public class Shell : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
@@ -27,6 +28,8 @@ public class Shell : MonoBehaviour
 
     public void OnTriggerEnter(Collider collider)
     {
+        AudioSource.PlayClipAtPoint(shellExlosionAudio,transform.position);
+
         Collider[] colliders=Physics.OverlapSphere(transform.position,m_ExplosionRadius,m_TankMask);
 
         for(int i=0;i<colliders.Length;i++){
@@ -51,8 +54,6 @@ public class Shell : MonoBehaviour
         m_explosionParticles.transform.parent=null;
 
         m_explosionParticles.Play();
-
-        AudioSource.PlayClipAtPoint(shellExlosionAudio,transform.position);
 
         Destroy(m_explosionParticles.gameObject,m_explosionParticles.duration);
 

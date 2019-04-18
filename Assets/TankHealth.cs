@@ -10,6 +10,7 @@ public class TankHealth : MonoBehaviour
     public AudioClip tankExposionAudio;
     public Slider hpSlider;
     private float totalHp;
+    public GameObject camera;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +29,7 @@ public class TankHealth : MonoBehaviour
         hp-=damage;
         hpSlider.value=hp/totalHp;
         if(hp<=0){
-            AudioSource.PlayClipAtPoint(tankExposionAudio,transform.position);
+            AudioSource.PlayClipAtPoint(tankExposionAudio,camera.transform.position);
             GameObject.Instantiate(tankExposion,transform.position+Vector3.up,transform.rotation);
             GameObject.Destroy(this.gameObject);
         }
